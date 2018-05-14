@@ -1,5 +1,9 @@
-out_file = open("out.py", "w")
-with open("script.txt", "r") as ins:
+from sys import argv
+op_filename = "out.py"
+if len(argv) > 1 :
+    op_filename = argv[1]
+out_file = open(op_filename, "w")
+with open("/Users/upen/Documents/github/pfiles/script.txt", "r") as ins:
     array = []
     dotab = False
     for string in ins:
