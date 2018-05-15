@@ -6,10 +6,13 @@ out_file = open(op_filename, "w")
 with open("/Users/upen/Documents/github/pfiles/script.txt", "r") as ins:
     array = []
     dotab = False
-    for string in ins:
-        string = string.lstrip().rstrip()
-        if len(string) > 2:
-            line = string[string.index(' ')+1:len(string)]
+    for readline in ins:
+        readline = readline.lstrip().rstrip()
+        #print readline
+        #print len(readline)
+        #print readline.find(' ')
+        if readline.find(' ') > 0:
+            line = readline[readline.index(' ')+1:len(readline)]
             iselse = line.startswith('elif') | line.startswith('else')
             if dotab and not iselse:
                 out_file.write('\t')
