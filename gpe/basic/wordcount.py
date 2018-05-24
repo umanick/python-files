@@ -66,3 +66,10 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+def print_words(filename)
+  return
+
+def print_top(filename)
+  return
