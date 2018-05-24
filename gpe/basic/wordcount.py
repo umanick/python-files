@@ -64,12 +64,34 @@ def main():
     print 'unknown option: ' + option
     sys.exit(1)
 
+def get_map(filename):
+  in_file = open(filename)
+  indata = in_file.read()
+  map = {}
+  for string in indata.split():
+    string = string.lower()
+    if string in map:
+      map[string] = map[string] + 1
+    else:
+      map[string] = 1
+  in_file.close()   
+  return map
+
+def print_words(filename):
+  map = get_map(filename)
+  for key in sorted(map.keys()):
+    print key + ' - ' + str(map[key])
+  return
+
+def get_count(tuple):
+  return tuple[1]
+
+def print_top(filename):
+  map = get_map(filename)
+  map = sorted(map.items(), key=get_count, reverse=True)
+  for item in map[:20]:
+    print item[0] + ' - %d' % item[1]
+  return
+
 if __name__ == '__main__':
   main()
-
-
-def print_words(filename)
-  return
-
-def print_top(filename)
-  return
