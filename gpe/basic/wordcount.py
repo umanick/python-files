@@ -69,13 +69,31 @@ def get_map(filename):
   indata = in_file.read()
   map = {}
   for string in indata.split():
-    string = string.lower()
+    string = strip_string(string.lower())
     if string in map:
       map[string] = map[string] + 1
     else:
       map[string] = 1
   in_file.close()   
   return map
+
+#This method will string the trailing and leading non-alpha numeric characters
+#If the string contains all non-alphanumerics, it will return the string as is.
+def strip_string(string):
+  front = False
+  index = 0
+  right = left = 0
+  for c in string:
+      if c.isalnum():
+          right = index
+          if not front:
+              left = index
+              front = True
+      index += 1
+  if front:
+    return string[left:right+1]
+  else:
+    return string
 
 def print_words(filename):
   map = get_map(filename)
