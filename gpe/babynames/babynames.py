@@ -103,9 +103,6 @@ def main():
       print '----\t\t------'
       for i in range(0, len(list)):
         print list[i][:list[i].index(' ')] + '\t\t' + list[i][list[i].index(' ')+1]
-
-
-
   
 if __name__ == '__main__':
   main()
