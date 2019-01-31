@@ -6,3 +6,6 @@ gpe/copyspecial/solution
 gpe/logpuzzle/solution
 gpe/basic/solution
 gpe/babynames/solution
+*.class
+books
+datacamp
